@@ -20,14 +20,13 @@ android {
             keyPassword releaseKeyProperties['password']
         }
     }
-
-    compileSdkVersion targetSdkVersion
-    buildToolsVersion = builToolsVersion
+    compileSdkVersion rootProject.targetSdkVersion
+    buildToolsVersion = rootProject.builToolsVersion
 
     defaultConfig {
         applicationId "com.theplanet.cleanarchitecturecourse"
-        minSdkVersion minSdkVersion
-        targetSdkVersion targetSdkVersion
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode versionCode
         versionName versionName
 
@@ -54,14 +53,14 @@ androidExtensions {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "androidx.core:core-ktx:$ktx"
 
 
     //design
     implementation "com.android.support.constraint:constraint-layout:$constraintLayout"
-    implementation "androidx.recyclerview:recyclerview:$androidxVersion"
-    implementation "androidx.cardview:cardview:$androidxVersion"
+    implementation "androidx.recyclerview:recyclerview:$androidxViews"
+    implementation "androidx.cardview:cardview:$androidxViews"
 
     //ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
@@ -96,14 +95,14 @@ dependencies {
 
 
     //testing
-    testImplementation "junit:junit:$junitVersion"
+    testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
     androidTestImplementation "androidx.test:runner:$testRunner"
-    testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation "androidx.arch.core:core-testing:$androidxCoreTestingVersion"
-    testImplementation "org.powermock:powermock-core:$powerMockVersion"
-    testImplementation "org.powermock:powermock-module-junit4:$powerMockVersion"
-    testImplementation "org.powermock:powermock-api-mockito2:$powerMockVersion"
+    testImplementation "org.mockito:mockito-core:$mockito"
+    testImplementation "androidx.arch.core:core-testing:$archCore"
+    testImplementation "org.powermock:powermock-core:$powerMock"
+    testImplementation "org.powermock:powermock-module-junit4:$powerMock"
+    testImplementation "org.powermock:powermock-api-mockito2:$powerMock"
 
 }
 
