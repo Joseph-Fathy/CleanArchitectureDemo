@@ -1,6 +1,6 @@
 package com.theplanet.cleanarchitecturecourse.domain.usecases
 
-import com.theplanet.cleanarchitecturecourse.domain.entities.UserInfoEntity
+import com.theplanet.cleanarchitecturecourse.domain.entities.UserInfoDomainEntity
 import com.theplanet.cleanarchitecturecourse.domain.repository.SimpleRepository
 import io.reactivex.Observable
 import io.reactivex.Scheduler
@@ -13,9 +13,9 @@ class GetUserInfoUseCase @Inject constructor(
     private val simpleRepository: SimpleRepository,
     @Background backgroundScheduler: Scheduler,
     @Foreground foregroundScheduler: Scheduler
-) : ObservableUseCase<UserInfoEntity, String>(backgroundScheduler, foregroundScheduler) {
+) : ObservableUseCase<UserInfoDomainEntity, String>(backgroundScheduler, foregroundScheduler) {
 
-    override fun generateObservable(input: String?): Observable<UserInfoEntity> {
+    override fun generateObservable(input: String?): Observable<UserInfoDomainEntity> {
         if (input == null)
             throw IllegalArgumentException("User identifier can't be null")
 

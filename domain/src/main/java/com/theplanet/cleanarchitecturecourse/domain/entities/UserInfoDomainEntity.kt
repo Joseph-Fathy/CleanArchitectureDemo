@@ -3,7 +3,7 @@ package com.theplanet.cleanarchitecturecourse.domain.entities
 
 //For representing the data in the domain layer
 
-data class UserInfoEntity(
+data class UserInfoDomainEntity(
     val accountNumber: String,
     val displayName: String,
     val address: String,

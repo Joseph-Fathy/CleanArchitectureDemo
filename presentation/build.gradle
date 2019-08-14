@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion rootProject.targetSdkVersion
+    buildToolsVersion = rootProject.builToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode versionCode
+        versionName versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':domain')
+
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
+    //life cycle
+    // ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
+
+
+    //RX
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava"
+    implementation "javax.inject:javax.inject:$javaxInject"
+
+    //Testing
+    testImplementation "junit:junit:$junit"
+    testImplementation "androidx.arch.core:core-testing:$archCore"
+    testImplementation "org.mockito:mockito-core:$mockito"
+    androidTestImplementation "androidx.test:runner:$testRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+}
