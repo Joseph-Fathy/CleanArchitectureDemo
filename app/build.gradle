@@ -21,15 +21,15 @@ android {
         }
     }
 
-    compileSdkVersion rootProject.targetSdkVersion
-    buildToolsVersion = rootProject.builToolsVersion
+    compileSdkVersion targetSdkVersion
+    buildToolsVersion = builToolsVersion
 
     defaultConfig {
         applicationId "com.theplanet.cleanarchitecturecourse"
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
+        minSdkVersion minSdkVersion
+        targetSdkVersion targetSdkVersion
+        versionCode versionCode
+        versionName versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -54,56 +54,56 @@ androidExtensions {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
-    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
 
 
     //design
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayout"
-    implementation "androidx.recyclerview:recyclerview:$rootProject.androidxVersion"
-    implementation "androidx.cardview:cardview:$rootProject.androidxVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayout"
+    implementation "androidx.recyclerview:recyclerview:$androidxVersion"
+    implementation "androidx.cardview:cardview:$androidxVersion"
 
     //ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle"
 
 
     //dagger
-    implementation "com.google.dagger:dagger:$rootProject.dagger"
-    implementation "com.google.dagger:dagger-android:$rootProject.dagger"
-    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger"
-    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger"
-    compileOnly "javax.annotation:jsr250-api:$rootProject.javax"
+    implementation "com.google.dagger:dagger:$dagger"
+    implementation "com.google.dagger:dagger-android:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    compileOnly "javax.annotation:jsr250-api:$javax"
 
     //RX
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
 
 
     //Retrofit
-    implementation group: "com.squareup.okhttp3", name: "okhttp", version: "$rootProject.okHttp"
-    implementation group: "com.squareup.okhttp3", name: "okhttp-urlconnection", version: "$rootProject.okHttp"
-    implementation group: "com.squareup.retrofit2", name: "converter-gson", version: "$rootProject.retrofit"
-    implementation group: "com.squareup.retrofit2", name: "retrofit", version: "$rootProject.retrofit"
-    implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$rootProject.retrofit"
+    implementation group: "com.squareup.okhttp3", name: "okhttp", version: "$okHttp"
+    implementation group: "com.squareup.okhttp3", name: "okhttp-urlconnection", version: "$okHttp"
+    implementation group: "com.squareup.retrofit2", name: "converter-gson", version: "$retrofit"
+    implementation group: "com.squareup.retrofit2", name: "retrofit", version: "$retrofit"
+    implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$retrofit"
 
 
     // Room
-    implementation "android.arch.persistence.room:runtime:$rootProject.room"
-    implementation "android.arch.persistence.room:rxjava2:$rootProject.room"
-    kapt "android.arch.persistence.room:compiler:$rootProject.room"
+    implementation "android.arch.persistence.room:runtime:$room"
+    implementation "android.arch.persistence.room:rxjava2:$room"
+    kapt "android.arch.persistence.room:compiler:$room"
 
 
 
     //testing
-    testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso"
-    androidTestImplementation "androidx.test:runner:$rootProject.testRunner"
-    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
-    testImplementation "androidx.arch.core:core-testing:$rootProject.androidxCoreTestingVersion"
-    testImplementation "org.powermock:powermock-core:$rootProject.powerMockVersion"
-    testImplementation "org.powermock:powermock-module-junit4:$rootProject.powerMockVersion"
-    testImplementation "org.powermock:powermock-api-mockito2:$rootProject.powerMockVersion"
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "androidx.test:runner:$testRunner"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "androidx.arch.core:core-testing:$androidxCoreTestingVersion"
+    testImplementation "org.powermock:powermock-core:$powerMockVersion"
+    testImplementation "org.powermock:powermock-module-junit4:$powerMockVersion"
+    testImplementation "org.powermock:powermock-api-mockito2:$powerMockVersion"
 
 }
 
