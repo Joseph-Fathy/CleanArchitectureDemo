@@ -4,18 +4,15 @@ apply plugin: 'kotlin'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     //RX
-    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
-
-
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava"
     implementation "javax.inject:javax.inject:$javaxInject"
 
     //testing
     testImplementation "junit:junit:$junit"
     testImplementation "org.mockito:mockito-core:$mockito"
-
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
 }
