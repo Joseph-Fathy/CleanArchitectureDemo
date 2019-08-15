@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import cleanarchitecture.domain.repository.SimpleRepository
 import cleanarchitecture.domain.usecases.GetUserInfoUseCase
 import cleanarchitecture.presentation.PresentationTestDataGenerator
-import cleanarchitecture.presentation.data.mapper.UserInfoMapperFromDomainToPresentation
-import cleanarchitecture.presentation.data.model.Status
+import cleanarchitecture.presentation.mapper.UserInfoMapperFromDomainToPresentation
+import cleanarchitecture.presentation.model.Status
 
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers

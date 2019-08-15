@@ -1,6 +1,6 @@
 package cleanarchitecture.presentation
 
-import cleanarchitecture.presentation.data.model.UserInfoPresentationModel
+import cleanarchitecture.presentation.model.UserInfoPresentationModel
 
 
 

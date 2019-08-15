@@ -1,4 +1,4 @@
-package cleanarchitecture.presentation.data.model
+package cleanarchitecture.presentation.model
 
 data class UserInfoPresentationModel (
     val accountNumber: String,

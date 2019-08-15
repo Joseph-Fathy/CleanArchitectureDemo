@@ -1,4 +1,4 @@
-package cleanarchitecture.presentation.data.mapper
+package cleanarchitecture.presentation.mapper
 
 /*For converting data model from Domain Layer format to Presentation Layer format */
 interface Mapper<T, E> {

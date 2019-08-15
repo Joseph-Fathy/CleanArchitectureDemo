@@ -1,4 +1,4 @@
-package cleanarchitecture.presentation.data.model
+package cleanarchitecture.presentation.model
 
 /**
  * LiveData holds one type of data

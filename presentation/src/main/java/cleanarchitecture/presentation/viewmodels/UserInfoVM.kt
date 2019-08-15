@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.toLiveData
 import cleanarchitecture.domain.entities.UserInfoDomainEntity
 import cleanarchitecture.domain.usecases.GetUserInfoUseCase
-import cleanarchitecture.presentation.data.mapper.Mapper
-import cleanarchitecture.presentation.data.model.Resource
-import cleanarchitecture.presentation.data.model.UserInfoPresentationModel
+import cleanarchitecture.presentation.mapper.Mapper
+import cleanarchitecture.presentation.model.Resource
+import cleanarchitecture.presentation.model.UserInfoPresentationModel
 import cleanarchitecture.presentation.qualifier.UserIdentity
 import cleanarchitecture.presentation.viewmodels.base.BaseVM
 import io.reactivex.BackpressureStrategy

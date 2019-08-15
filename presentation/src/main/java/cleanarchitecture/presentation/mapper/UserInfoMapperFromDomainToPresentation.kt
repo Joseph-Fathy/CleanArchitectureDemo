@@ -1,8 +1,8 @@
-package cleanarchitecture.presentation.data.mapper
+package cleanarchitecture.presentation.mapper
 
 
 import cleanarchitecture.domain.entities.UserInfoDomainEntity
-import cleanarchitecture.presentation.data.model.UserInfoPresentationModel
+import cleanarchitecture.presentation.model.UserInfoPresentationModel
 import javax.inject.Inject
 
 /**convert format of the UserInfo from DOMAIN format (UserInfoDomainEntity)
