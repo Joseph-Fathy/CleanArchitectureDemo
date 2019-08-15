@@ -21,10 +21,12 @@ class UserInfoVM @Inject internal constructor(
 ) : BaseVM() {
     val userInfoResource: LiveData<Resource<UserInfoPresentationModel>>
         get() = userInfoUseCase
-            .buildUseCase(userIdentifier)
-            .map { userInfoMapper.to(it) }
+            .buildUseCase(userIdentifier)   //return Observable<UserInfoDomainEntity>
             .map {
-                Resource.success(it)
+                domainEntity-> userInfoMapper.to(domainEntity) // return presentation model
+            }
+            .map {
+                presentationModel-> Resource.success(presentationModel) // wrap with UI status
             }
             .startWith(Resource.loading())
             .onErrorResumeNext(

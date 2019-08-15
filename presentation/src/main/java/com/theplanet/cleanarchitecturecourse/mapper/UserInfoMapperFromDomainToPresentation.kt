@@ -9,7 +9,9 @@ import javax.inject.Inject
  * to PRESENTATION format (UserInfoPresentationModel) and ViseVersa*/
 
 
-class UserInfoEntityMapper @Inject constructor() : Mapper<UserInfoDomainEntity, UserInfoPresentationModel> {
+class UserInfoMapperFromDomainToPresentation @Inject constructor() : Mapper<UserInfoDomainEntity, UserInfoPresentationModel> {
+
+    //Presentation Layer to Domain Layer
     override fun from(e: UserInfoPresentationModel): UserInfoDomainEntity {
         return UserInfoDomainEntity(
             accountNumber = e.accountNumber,
@@ -23,6 +25,8 @@ class UserInfoEntityMapper @Inject constructor() : Mapper<UserInfoDomainEntity, 
         )
     }
 
+
+    //Domain Layer to Presentation Layer
     override fun to(t: UserInfoDomainEntity): UserInfoPresentationModel {
         return UserInfoPresentationModel(
             accountNumber = t.accountNumber,
