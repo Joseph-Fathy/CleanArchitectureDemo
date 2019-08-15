@@ -88,12 +88,6 @@ dependencies {
     implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$retrofit"
 
 
-    // Room
-    implementation "android.arch.persistence.room:runtime:$room"
-    implementation "android.arch.persistence.room:rxjava2:$room"
-    kapt "android.arch.persistence.room:compiler:$room"
-
-
 
     //testing
     testImplementation "junit:junit:$junit"

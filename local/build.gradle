@@ -7,6 +7,7 @@ android {
     compileSdkVersion rootProject.targetSdkVersion
     buildToolsVersion = rootProject.builToolsVersion
 
+
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
@@ -29,30 +30,29 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':domain')
+    implementation project(':data')
 
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-    //App
-    implementation "androidx.appcompat:appcompat:$appcompat"
-
-
-    //life cycle
-    // ReactiveStreams support for LiveData
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
 
 
     //RX
     implementation "io.reactivex.rxjava2:rxjava:$rxJava"
     implementation "javax.inject:javax.inject:$javaxInject"
 
-    //Testing
+
+    // Room
+    implementation "androidx.room:room-runtime:$room"
+    implementation "androidx.room:room-rxjava2:$room"
+    kapt "androidx.room:room-compiler:$room"
+
+    //testing
     testImplementation "junit:junit:$junit"
-    testImplementation "androidx.arch.core:core-testing:$archCore"
     testImplementation "org.mockito:mockito-core:$mockito"
     androidTestImplementation "androidx.test:runner:$testRunner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "androidx.arch.core:core-testing:$archCore"
+
+
+
 }
