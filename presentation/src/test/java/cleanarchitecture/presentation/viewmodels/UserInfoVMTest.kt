@@ -1,7 +1,7 @@
 package cleanarchitecture.presentation.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import cleanarchitecture.domain.repository.SimpleRepository
+import cleanarchitecture.domain.repository.DomainRepository
 import cleanarchitecture.domain.usecases.GetUserInfoUseCase
 import cleanarchitecture.presentation.PresentationTestDataGenerator
 import cleanarchitecture.presentation.mapper.UserInfoMapperFromDomainToPresentation
@@ -27,7 +27,7 @@ class UserInfoVMTest {
     val rule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var repository: SimpleRepository
+    lateinit var repository: DomainRepository
 
     private lateinit var userInfoVM: UserInfoVM
     private val userInfoMapperFromDomainToPresentation = UserInfoMapperFromDomainToPresentation()

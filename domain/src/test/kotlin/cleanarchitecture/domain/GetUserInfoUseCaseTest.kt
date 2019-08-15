@@ -1,6 +1,6 @@
 package cleanarchitecture.domain
 
-import cleanarchitecture.domain.repository.SimpleRepository
+import cleanarchitecture.domain.repository.DomainRepository
 import cleanarchitecture.domain.usecases.GetUserInfoUseCase
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
@@ -19,13 +19,13 @@ class GetUserInfoUseCaseTest {
     private lateinit var getUserInfoUseCase: GetUserInfoUseCase
 
     @Mock
-    private lateinit var simpleRepository: SimpleRepository
+    private lateinit var domainRepository: DomainRepository
 
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
         getUserInfoUseCase = GetUserInfoUseCase(
-            simpleRepository,
+            domainRepository,
             Schedulers.trampoline(),
             Schedulers.trampoline()
         )
@@ -36,12 +36,12 @@ class GetUserInfoUseCaseTest {
     fun test_getUserInfo_success() {
         val userInfoEntity = DomainTestDataGenerator.generateUserInfo()
 
-        Mockito.`when`(simpleRepository.getUserInfo(userInfoEntity.accountNumber))
+        Mockito.`when`(domainRepository.getUserInfo(userInfoEntity.accountNumber))
             .thenReturn(Observable.just(userInfoEntity))
 
         val testObserver = getUserInfoUseCase.buildUseCase(userInfoEntity.accountNumber).test()
 
-        Mockito.verify(simpleRepository, times(1)).getUserInfo(userInfoEntity.accountNumber)
+        Mockito.verify(domainRepository, times(1)).getUserInfo(userInfoEntity.accountNumber)
 
         testObserver.assertSubscribed()
             .assertValue{
@@ -57,12 +57,12 @@ class GetUserInfoUseCaseTest {
         val userInfo = DomainTestDataGenerator.generateUserInfo()
         val errorMsg = "ERROR OCCURRED"
 
-        Mockito.`when`(simpleRepository.getUserInfo(userInfo.accountNumber))
+        Mockito.`when`(domainRepository.getUserInfo(userInfo.accountNumber))
             .thenReturn(Observable.error(Throwable(errorMsg)))
 
         val testObserver = getUserInfoUseCase.buildUseCase(userInfo.accountNumber).test()
 
-        Mockito.verify(simpleRepository, times(1))
+        Mockito.verify(domainRepository, times(1))
             .getUserInfo(userInfo.accountNumber)
 
         testObserver.assertSubscribed()
