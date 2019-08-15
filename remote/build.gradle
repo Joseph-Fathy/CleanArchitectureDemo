@@ -1,0 +1,31 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':data')
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
+    //RX
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava"
+    implementation "javax.inject:javax.inject:$javaxInject"
+
+
+    //Retrofit
+    implementation group: "com.squareup.okhttp3", name: "okhttp", version: "$okHttp"
+    implementation group: "com.squareup.okhttp3", name: "okhttp-urlconnection", version: "$okHttp"
+    implementation group: "com.squareup.retrofit2", name: "converter-gson", version: "$retrofit"
+    implementation group: "com.squareup.retrofit2", name: "retrofit", version: "$retrofit"
+    implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$retrofit"
+
+
+    //testing
+    testImplementation "junit:junit:$junit"
+    testImplementation "org.mockito:mockito-core:$mockito"
+
+}
+
+

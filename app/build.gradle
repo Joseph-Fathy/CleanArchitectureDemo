@@ -58,6 +58,13 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktx"
 
 
+    implementation project(':domain')
+    implementation project(':data')
+    implementation project(':remote')
+    implementation project(':local')
+    implementation project(':presentation')
+
+
     //design
     implementation "com.android.support.constraint:constraint-layout:$constraintLayout"
     implementation "androidx.recyclerview:recyclerview:$androidxViews"
@@ -86,6 +93,12 @@ dependencies {
     implementation group: "com.squareup.retrofit2", name: "converter-gson", version: "$retrofit"
     implementation group: "com.squareup.retrofit2", name: "retrofit", version: "$retrofit"
     implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$retrofit"
+
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:$room"
+    implementation "android.arch.persistence.room:rxjava2:$room"
+    kapt "android.arch.persistence.room:compiler:$room"
 
 
 
