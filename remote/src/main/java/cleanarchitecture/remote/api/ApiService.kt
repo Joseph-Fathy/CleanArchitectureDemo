@@ -1,14 +1,13 @@
 package cleanarchitecture.remote.api
 
+import cleanarchitecture.remote.api.ApiEndPoints.USER_INFO
 import cleanarchitecture.remote.model.UserInfoResponseWrapper
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.POST
 
 
 interface ApiService {
 
-    @GET("getUserInfoTest")
-    fun getUserInfo(@Path("identifier") userIdentifier: String):
-            Observable<UserInfoResponseWrapper>
+    @POST(USER_INFO)
+    fun getUserInfo():Observable<UserInfoResponseWrapper>
 }

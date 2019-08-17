@@ -40,10 +40,10 @@ class LocalDataSourceUserInfoTest {
         val userIdentifier = "1BFC9A38E6C7"
         val userInfoLocal = LocalTestDataGenerator.generateUserInfo()
 
-        Mockito.`when`(userInfoDao.getUserInfo(userIdentifier))
+        Mockito.`when`(userInfoDao.getUserInfo())
             .thenReturn(Observable.just(userInfoLocal))
 
-        localDataSource.getUserInfo(userIdentifier)
+        localDataSource.getUserInfo()
             .test()
             .assertSubscribed()
             .assertValue { it == userInfoMapper.from(userInfoLocal) }

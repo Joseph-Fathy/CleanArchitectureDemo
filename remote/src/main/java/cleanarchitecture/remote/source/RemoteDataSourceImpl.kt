@@ -14,8 +14,8 @@ class RemoteDataSourceImpl @Inject constructor(
     private val apiService: ApiService
 ) : RemoteDataSource {
 
-    override fun getUserInfo(identifier: String): Observable<UserInfoDataModel> {
-        return apiService.getUserInfo(identifier)
+    override fun getUserInfo(): Observable<UserInfoDataModel> {
+        return apiService.getUserInfo()
             .map { response ->
                 userInfoMapper.from(response.userInfo)
             }

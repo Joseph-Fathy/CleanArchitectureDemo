@@ -81,6 +81,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
     compileOnly "javax.annotation:jsr250-api:$javax"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
 
     //RX
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
@@ -90,6 +91,7 @@ dependencies {
     //Retrofit
     implementation group: "com.squareup.okhttp3", name: "okhttp", version: "$okHttp"
     implementation group: "com.squareup.okhttp3", name: "okhttp-urlconnection", version: "$okHttp"
+    implementation group: "com.squareup.okhttp3", name: "logging-interceptor", version: "$okHttp"
     implementation group: "com.squareup.retrofit2", name: "converter-gson", version: "$retrofit"
     implementation group: "com.squareup.retrofit2", name: "retrofit", version: "$retrofit"
     implementation group: "com.squareup.retrofit2", name: "adapter-rxjava2", version: "$retrofit"

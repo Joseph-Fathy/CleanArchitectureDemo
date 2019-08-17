@@ -20,14 +20,14 @@ class DataRepositoryImpl @Inject constructor(
     /*in case any error (connection or server issues ) return empty
     observable and data from local data source is used instead*/
 
-    override fun getUserInfo(identifier: String): Observable<UserInfoDomainEntity> {
+    override fun getUserInfo(): Observable<UserInfoDomainEntity> {
 
-        val userInfoObservable = localDataSource.getUserInfo(identifier) //return Observable<UserInfoDataModel>
+        val userInfoObservable = localDataSource.getUserInfo() //return Observable<UserInfoDataModel>
             .map { dataModel ->
                 userInfoMapper.from(dataModel)  // return userInfoDomainEntity
             }
 
-        return remoteDataSource.getUserInfo(identifier) //Observable<UserInfoDataModel>
+        return remoteDataSource.getUserInfo() //Observable<UserInfoDataModel>
             .map { dataModel ->
                 localDataSource.saveUserInfo(dataModel)
                 userInfoMapper.from(dataModel) // return userInfoDomainEntity

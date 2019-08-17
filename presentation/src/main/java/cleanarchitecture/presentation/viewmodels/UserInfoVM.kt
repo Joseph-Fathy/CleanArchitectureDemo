@@ -7,7 +7,6 @@ import cleanarchitecture.domain.usecases.GetUserInfoUseCase
 import cleanarchitecture.presentation.mapper.Mapper
 import cleanarchitecture.presentation.model.Resource
 import cleanarchitecture.presentation.model.UserInfoPresentationModel
-import cleanarchitecture.presentation.qualifier.UserIdentity
 import cleanarchitecture.presentation.viewmodels.base.BaseVM
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
@@ -15,13 +14,12 @@ import io.reactivex.functions.Function
 import javax.inject.Inject
 
 class UserInfoVM @Inject internal constructor(
-    @UserIdentity private val userIdentifier: String,
     private val userInfoMapper: Mapper<UserInfoDomainEntity, UserInfoPresentationModel>,
     private val userInfoUseCase: GetUserInfoUseCase
 ) : BaseVM() {
     val userInfoResource: LiveData<Resource<UserInfoPresentationModel>>
         get() = userInfoUseCase
-            .buildUseCase(userIdentifier)   //return Observable<UserInfoDomainEntity>
+            .buildUseCase()   //return Observable<UserInfoDomainEntity>
             .map {
                 domainEntity-> userInfoMapper.to(domainEntity) // return presentation model
             }

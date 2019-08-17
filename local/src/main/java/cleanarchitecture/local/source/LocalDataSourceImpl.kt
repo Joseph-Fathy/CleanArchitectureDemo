@@ -11,8 +11,8 @@ class LocalDataSourceImpl @Inject constructor(
     private val userInfoMapper: UserInfoMapperFromDataToLocal,
     private val userInfoDAO: UserInfoDAO
 ) : LocalDataSource {
-    override fun getUserInfo(identifier: String): Observable<UserInfoDataModel> {
-        return userInfoDAO.getUserInfo(identifier)
+    override fun getUserInfo(): Observable<UserInfoDataModel> {
+        return userInfoDAO.getUserInfo()
             .map { localModel ->
                 userInfoMapper.from(localModel)
             }

@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "user_info")
 data class UserInfoLocal(
-    @PrimaryKey @ColumnInfo(name = "account_id") val accountNumber: String,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "_id") val _ID: Int=0,
+    @ColumnInfo(name = "account_id") val accountNumber: String,
     @ColumnInfo(name = "display_name") val displayName: String,
     @ColumnInfo(name = "user_address") val address: String,
     @ColumnInfo(name = "join_date") val displayableJoinDate: String,

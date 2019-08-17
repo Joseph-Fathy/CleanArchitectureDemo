@@ -15,8 +15,8 @@ interface UserInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUserInfo(userInfo: UserInfoLocal)
 
-    @Query("SELECT * FROM user_info WHERE account_id = :userIdentifier")
-    fun getUserInfo(userIdentifier: String): Observable<UserInfoLocal>
+    @Query("SELECT * FROM user_info order by _id desc limit 1")
+    fun getUserInfo(): Observable<UserInfoLocal>
 
     @Query("DELETE FROM user_info")
     fun clearCachedUserInfo(): Completable

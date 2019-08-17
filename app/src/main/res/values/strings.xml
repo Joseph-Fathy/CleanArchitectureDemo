@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CleanArchitectureCourse</string>
+    <string name="display_account_num">Account: %s</string>
+    <string name="display_account_balance">Balance: $%s</string>
 </resources>

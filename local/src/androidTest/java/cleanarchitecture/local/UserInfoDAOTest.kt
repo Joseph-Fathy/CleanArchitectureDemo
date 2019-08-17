@@ -42,7 +42,7 @@ class UserInfoDAOTest {
 
         userInfoDAO.addUserInfo(userInfo)
 
-        userInfoDAO.getUserInfo(userInfo.accountNumber)
+        userInfoDAO.getUserInfo()
             .test()
             .assertValue {
                 it == userInfo
@@ -55,7 +55,7 @@ class UserInfoDAOTest {
 
         userInfoDAO.addUserInfo(userInfo)
 
-        userInfoDAO.getUserInfo(userInfo.accountNumber)
+        userInfoDAO.getUserInfo()
             .test()
             .assertValueCount(1)
             .assertValue {
@@ -64,7 +64,7 @@ class UserInfoDAOTest {
 
         userInfoDAO.clearCachedUserInfo().subscribe()
 
-        userInfoDAO.getUserInfo(userInfo.accountNumber)
+        userInfoDAO.getUserInfo()
             .test()
             .assertNoValues()
             .assertNotComplete()

@@ -39,16 +39,15 @@ class RepositoryImplementationTest {
 
     @Test
     fun test_getUserInfo_local_remote_interaction() {
-        val userIdentifier = "1BFC9A38E6C7"
         val userInfoData = DataTestDataGenerator.generateUserInfo()
         val userInfoDomain = userInfoMapperFromDomainToData.from(userInfoData)
 
-        Mockito.`when`(remoteDataSource.getUserInfo(userIdentifier))
+        Mockito.`when`(remoteDataSource.getUserInfo())
             .thenReturn(Observable.just(userInfoData))
-        Mockito.`when`(localDataSource.getUserInfo(userIdentifier))
+        Mockito.`when`(localDataSource.getUserInfo())
             .thenReturn(Observable.just(userInfoData))
 
-        val testSubscriber = domainRepository.getUserInfo(userIdentifier).test()
+        val testSubscriber = domainRepository.getUserInfo().test()
 
         testSubscriber.assertSubscribed()
             .assertValueCount(2)
@@ -59,7 +58,7 @@ class RepositoryImplementationTest {
             .saveUserInfo(userInfoData)
 
         Mockito.verify(remoteDataSource, times(1))
-            .getUserInfo(userIdentifier)
+            .getUserInfo()
     }
 
     @Test
@@ -68,12 +67,12 @@ class RepositoryImplementationTest {
         val userInfoData = DataTestDataGenerator.generateUserInfo()
         val userInfoDomain = userInfoMapperFromDomainToData.from(userInfoData)
 
-        Mockito.`when`(remoteDataSource.getUserInfo(userIdentifier))
+        Mockito.`when`(remoteDataSource.getUserInfo())
             .thenReturn(Observable.error(Throwable()))
-        Mockito.`when`(localDataSource.getUserInfo(userIdentifier))
+        Mockito.`when`(localDataSource.getUserInfo())
             .thenReturn(Observable.just(userInfoData))
 
-        val testSubscriber = domainRepository.getUserInfo(userIdentifier).test()
+        val testSubscriber = domainRepository.getUserInfo().test()
 
         testSubscriber.assertSubscribed()
             .assertValueCount(1)
@@ -83,7 +82,7 @@ class RepositoryImplementationTest {
             .assertComplete()
 
         Mockito.verify(localDataSource, times(1))
-            .getUserInfo(userIdentifier)
+            .getUserInfo()
     }
 
 }

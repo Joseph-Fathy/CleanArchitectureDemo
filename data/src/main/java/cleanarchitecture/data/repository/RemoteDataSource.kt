@@ -5,5 +5,5 @@ import io.reactivex.Observable
 
 
 interface RemoteDataSource {
-    fun getUserInfo(identifier: String): Observable<UserInfoDataModel>
+    fun getUserInfo(): Observable<UserInfoDataModel>
 }

@@ -16,10 +16,10 @@ class GetUserInfoUseCase @Inject constructor(
 ) : ObservableUseCase<UserInfoDomainEntity, String>(backgroundScheduler, foregroundScheduler) {
 
     override fun generateObservable(input: String?): Observable<UserInfoDomainEntity> {
-        if (input == null)
-            throw IllegalArgumentException("User identifier can't be null")
+/*        if (input == null)
+            throw IllegalArgumentException("User identifier can't be null")*/
 
         //delegate the task of getting user info object to the repository
-        return domainRepository.getUserInfo(input)
+        return domainRepository.getUserInfo()
     }
 }

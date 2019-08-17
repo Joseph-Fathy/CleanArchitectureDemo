@@ -44,10 +44,10 @@ class RemoteDataSourceImplTest {
         mockResponse.statusOfNetworkResponse=statusOfNetworkResponse
 
 
-        Mockito.`when`(apiService.getUserInfo(userIdentifier))
+        Mockito.`when`(apiService.getUserInfo())
             .thenReturn(Observable.just(mockResponse))
 
-        remoteDataSource.getUserInfo(userIdentifier)
+        remoteDataSource.getUserInfo()
             .test()
             .assertSubscribed()
             .assertValue {
@@ -57,7 +57,7 @@ class RemoteDataSourceImplTest {
             .assertComplete()
 
         Mockito.verify(apiService, times(1))
-            .getUserInfo(userIdentifier)
+            .getUserInfo()
     }
 
     @Test
@@ -65,10 +65,10 @@ class RemoteDataSourceImplTest {
         val userIdentifier = "AEZ19EDH2QZ"
         val errorMsg = "ERROR"
 
-        Mockito.`when`(apiService.getUserInfo(userIdentifier))
+        Mockito.`when`(apiService.getUserInfo())
             .thenReturn(Observable.error(Throwable(errorMsg)))
 
-        remoteDataSource.getUserInfo(userIdentifier)
+        remoteDataSource.getUserInfo()
             .test()
             .assertSubscribed()
             .assertError {

@@ -8,6 +8,7 @@ class RoomTestDataGenerator {
     companion object {
         fun generateUserInfo(): UserInfoLocal {
             return UserInfoLocal(
+                1,
                 "1BFC9A38E6C7",
                 "John Doe",
                 "307, Palm drive, Virdigris Square, CA - 95014",

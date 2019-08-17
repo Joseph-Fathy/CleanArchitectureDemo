@@ -7,5 +7,5 @@ import io.reactivex.Observable
  * It contains the signature of functions needed by the use cases to work*/
 //You can add new repositories depending on the use cases.
 interface DomainRepository {
-    fun getUserInfo(userId:String):Observable<UserInfoDomainEntity>
+    fun getUserInfo():Observable<UserInfoDomainEntity>
 }

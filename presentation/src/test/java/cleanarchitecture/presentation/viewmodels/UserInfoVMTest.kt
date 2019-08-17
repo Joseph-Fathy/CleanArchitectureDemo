@@ -6,7 +6,6 @@ import cleanarchitecture.domain.usecases.GetUserInfoUseCase
 import cleanarchitecture.presentation.PresentationTestDataGenerator
 import cleanarchitecture.presentation.mapper.UserInfoMapperFromDomainToPresentation
 import cleanarchitecture.presentation.model.Status
-
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import org.junit.Assert.assertTrue
@@ -15,7 +14,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
@@ -46,7 +44,6 @@ class UserInfoVMTest {
         )
 
         userInfoVM = UserInfoVM(
-            presentationModel.accountNumber,
             userInfoMapperFromDomainToPresentation,
             getUserInfoUseCase
         )
@@ -55,7 +52,7 @@ class UserInfoVMTest {
     @Test
     fun test_getUserInfo_success() {
 
-        Mockito.`when`(repository.getUserInfo(anyString()))
+        Mockito.`when`(repository.getUserInfo())
             .thenReturn(Observable.just(domainEntity))
 
         val userInfoResource = userInfoVM.userInfoResource
@@ -71,7 +68,7 @@ class UserInfoVMTest {
     @Test
     fun test_getUserInfo_error() {
         val errorMsg = "user info error in fetching data"
-        Mockito.`when`(repository.getUserInfo(anyString()))
+        Mockito.`when`(repository.getUserInfo())
             .thenReturn(Observable.error(Throwable(errorMsg)))
 
         val userInfoResource = userInfoVM.userInfoResource
